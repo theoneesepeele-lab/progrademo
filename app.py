@@ -236,4 +236,18 @@ ax5.set_yticklabels(matriz_calor.index, color="#8B949E")
 
 ax5.spines["top"].set_visible(False)
 ax5.spines["right"].set_visible(False)
-ax5.spines["left"].set_color("#3
+ax5.spines["left"].set_color("#30363D")
+ax5.spines["bottom"].set_color("#30363D")
+
+fig5.colorbar(cax, ax=ax5, label="Unidades vendidas")
+st.pyplot(fig5)
+
+st.markdown("---")
+
+# --- TABLA INTERACTIVA ---
+with st.expander("📋 Registros detallados de ventas"):
+    st.dataframe(
+        filtrado.sort_values(by="fecha", ascending=False),
+        use_container_width=True,
+        hide_index=True,
+    )
